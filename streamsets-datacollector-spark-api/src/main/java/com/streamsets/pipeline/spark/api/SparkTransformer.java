@@ -27,7 +27,7 @@ import java.util.List;
 
 /**
  * Base class for processing data using the Streamsets Data Collector
- * Spark Processor. Any implementations of this class must have a
+ * Spark Evaluator. Any implementations of this class must have a
  * no-args constructor. Any configuration can be passed in via the
  * {@linkplain SparkTransformer#init(JavaSparkContext, List)} method.
  */
@@ -39,7 +39,7 @@ public abstract class SparkTransformer {
    * pre-existing data from external systems.
    * @param context The JavaSparkContext that will be used to create RDDs in this
    *                run of the pipeline.
-   * @param parameters List of parameters passed in via the Spark Processor
+   * @param parameters List of parameters passed in via the Spark Evaluator
    */
   public void init(JavaSparkContext context, List<String> parameters) {
   }

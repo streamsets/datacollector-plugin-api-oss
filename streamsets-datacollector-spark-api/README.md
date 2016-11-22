@@ -14,13 +14,13 @@
 
 #Streamsets Spark Transformer
 
-This API can be used in combination with the `SparkProcessor`
+This API can be used in combination with the `Spark Evaluator`
 in Streamsets Data Collector to apply arbitrary transformations
 to a batch of Records using Spark.
 
-An implementation of the `com.streamsets.spark.Transformer` should
+An implementation of the `com.streamsets.pipeline.spark.api.SparkTransformer` should
 be inserted as an additional library in the SDC's classpath using
-the method described [here](https://streamsets.com/documentation/datacollector/latest/help/#Install_Config/AdditionalDrivers.html#task_idl_hqw_ft)
+the method described [here](https://streamsets.com/documentation/datacollector/latest/help/Processors/Spark.html#task_dr2_gvd_1y)
 The Spark Processor is available in several stage libraries, and this
 jar should be in the correct library for the specific stage library being used.
 
