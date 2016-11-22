@@ -37,6 +37,10 @@ public abstract class SparkTransformer {
    * This method is called exactly once each time the pipeline is started.
    * This can be used to make external connections or read configuration or
    * pre-existing data from external systems.
+   *
+   * This method will be called before the {@linkplain #transform(JavaRDD)} or the {@linkplain #destroy()}
+   * methods are called.
+   *
    * @param context The JavaSparkContext that will be used to create RDDs in this
    *                run of the pipeline.
    * @param parameters List of parameters passed in via the Spark Evaluator
@@ -57,5 +61,17 @@ public abstract class SparkTransformer {
    * @return {@linkplain TransformResult} returned by processing the {@param recordRDD}.
    */
   public abstract TransformResult transform(JavaRDD<Record> recordRDD);
+
+  /**
+   * Destroy this instance of the transformer. This should be used to clean up any external connections etc. set
+   * up in {@linkplain #init(JavaSparkContext, List)}.
+   *
+   * This method should be idempotent and should be able
+   * to handle multiple calls, but it is guaranteed that neither {@linkplain #init(JavaSparkContext, List)}
+   * nor {@linkplain #transform(JavaRDD)} will be called after this method has been called, until the pipeline
+   * is restarted.
+   */
+  public void destroy() {
+  }
 
 }
