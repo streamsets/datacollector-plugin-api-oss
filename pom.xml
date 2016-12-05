@@ -32,6 +32,16 @@
     <url>https://github.com/streamsets/datacollector-plugin-api</url>
   </scm>
 
+  <developers>
+    <!-- TODO add rest of team-->
+    <developer>
+      <id>hshreedharan</id>
+      <name>Hari Shreedharan</name>
+      <email>hshreedharan@streamsets.com</email>
+      <timezone>America/Chicago</timezone>
+    </developer>
+  </developers>
+
   <organization>
     <name>StreamSets</name>
     <url>http://www.streamsets.com</url>
