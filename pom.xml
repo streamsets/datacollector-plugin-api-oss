@@ -29,7 +29,7 @@
   <packaging>pom</packaging>
   <url>http://www.streamsets.com</url>
   <scm>
-    <url>https://github.com/streamsets/	datacollector-spark-api</url>
+    <url>https://github.com/streamsets/datacollector-plugin-api</url>
   </scm>
 
   <organization>
