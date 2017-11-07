@@ -188,6 +188,11 @@
             <exclude>.gitignore</exclude>
             <exclude>.gitreview</exclude>
 
+	    <!-- Jenkins -->
+            <exclude>**/buildInfo*.properties</exclude>
+            <exclude>**/ok</exclude>
+            <exclude>**/classworlds*conf</exclude>
+
             <exclude>**/target/**</exclude>
 
             <exclude>**/*.json</exclude>
