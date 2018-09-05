@@ -18,6 +18,7 @@ package com.streamsets.pipeline.spark.api;
 import com.streamsets.pipeline.api.Record;
 import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.api.java.JavaSparkContext;
+import org.apache.spark.sql.SparkSession;
 
 import java.util.List;
 
@@ -25,7 +26,11 @@ import java.util.List;
  * Base class for processing data using the Streamsets Data Collector
  * Spark Evaluator. Any implementations of this class must have a
  * no-args constructor. Any configuration can be passed in via the
- * {@linkplain SparkTransformer#init(JavaSparkContext, List)} method.
+ * {@linkplain SparkTransformer#init(JavaSparkContext, List)}  or
+ * {@linkplain SparkTransformer#init(SparkSession, List)}method.
+ *
+ * Both of these methods will be called by the framework, and the
+ * implementation can choose which method is implemented.
  */
 public abstract class SparkTransformer {
 
@@ -42,6 +47,21 @@ public abstract class SparkTransformer {
    * @param parameters List of parameters passed in via the Spark Evaluator
    */
   public void init(JavaSparkContext context, List<String> parameters) {
+  }
+
+  /**
+   * This method is called exactly once each time the pipeline is started.
+   * This can be used to make external connections or read configuration or
+   * pre-existing data from external systems.
+   *
+   * This method will be called before the {@linkplain #transform(JavaRDD)} or the {@linkplain #destroy()}
+   * methods are called.
+   *
+   * @param session The SparkSession that will be used to create RDDs in this
+   *                run of the pipeline.
+   * @param parameters List of parameters passed in via the Spark Evaluator
+   */
+  public void init(SparkSession session, List<String> parameters) {
   }
 
   /**
