@@ -20,7 +20,7 @@
 
   <groupId>com.streamsets</groupId>
   <artifactId>streamsets-datacollector-plugin-api</artifactId>
-  <version>3.18.0-SNAPSHOT</version>
+  <version>3.19.0-SNAPSHOT</version>
   <description>StreamSets Data Collector Plugin API</description>
   <modules>
     <module>streamsets-datacollector-spark-api</module>
